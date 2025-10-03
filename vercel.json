@@ -2,18 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/server/index.js",
+      "src": "package.json",
       "use": "@vercel/node"
-    },
-    {
-      "src": "dist/client/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/dist/client/assets/$1"
+      "dest": "/dist/client/assets/$1",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/dist/server/index.js"
     },
     {
       "src": "/(.*)",
