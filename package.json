@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build:client": "vite build",
-    "build:server": "esbuild server/index.ts --platform=node --bundle --format=esm --external:express --external:ws --external:drizzle-orm --outdir=dist/server",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:client",
     "start": "NODE_ENV=production node dist/server/index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
