@@ -26,8 +26,9 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
+  root: "client",
   build: {
-    outDir: "dist/client",
+    outDir: "../dist/client",
     emptyOutDir: true
   },
   server: {
